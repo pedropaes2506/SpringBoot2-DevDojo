@@ -3,8 +3,12 @@ package main.java.springboot2.controller;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import main.java.springboot2.domain.Anime;
+import main.java.springboot2.service.AnimeService;
 import main.java.springboot2.util.DateUtil;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,16 +16,22 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
-@RequestMapping("anime")
+@RequestMapping("animes")
 @Log4j2
 @RequiredArgsConstructor
 public class AnimeController {
     private final DateUtil dateUtil;
+    private final AnimeService animeService;
 
-    // localhost:8080/anime/list
-    @GetMapping(path = "list")
-    public List<Anime> list(){
+    // localhost:8080/animes
+    @GetMapping
+    public ResponseEntity<List<Anime>> list(){
         log.info(dateUtil.formatLocalDateTimeToDatabaseStyle(LocalDateTime.now()));
-        return List.of(new Anime("Boku no Hero"), new Anime("Berzerk"));
+        return ResponseEntity.ok(animeService.listAll());
+    }
+
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<Anime> findById(@PathVariable Long id){
+        return ResponseEntity.ok(animeService.findById(id));
     }
 }
