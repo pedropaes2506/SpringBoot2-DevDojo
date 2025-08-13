@@ -1,5 +1,6 @@
 package main.java.springboot2.service;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import main.java.springboot2.domain.Anime;
 import main.java.springboot2.exception.BadRequestException;
@@ -32,6 +33,7 @@ public class AnimeService {
                 .orElseThrow(() -> new BadRequestException("Anime id not found"));
     }
 
+    @Transactional
     public Anime save(AnimePostRequestBody animePostRequestBody) {
         return animeRepository.save(AnimeMapper.INSTANCE.toAnime(animePostRequestBody));
     }
