@@ -2,6 +2,7 @@ package main.java.springboot2.service;
 
 import lombok.RequiredArgsConstructor;
 import main.java.springboot2.domain.Anime;
+import main.java.springboot2.exception.BadRequestException;
 import main.java.springboot2.mapper.AnimeMapper;
 import main.java.springboot2.repository.AnimeRepository;
 import main.java.springboot2.requests.AnimePostRequestBody;
@@ -28,7 +29,7 @@ public class AnimeService {
 
     public Anime findByIdOrThrowBadRequestException(long id) {
         return animeRepository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Anime id not found"));
+                .orElseThrow(() -> new BadRequestException("Anime id not found"));
     }
 
     public Anime save(AnimePostRequestBody animePostRequestBody) {
