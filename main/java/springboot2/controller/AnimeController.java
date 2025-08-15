@@ -8,6 +8,8 @@ import main.java.springboot2.requests.AnimePostRequestBody;
 import main.java.springboot2.requests.AnimePutRequestBody;
 import main.java.springboot2.service.AnimeService;
 import main.java.springboot2.util.DateUtil;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -26,9 +28,9 @@ public class AnimeController {
 
     // localhost:8080/animes
     @GetMapping
-    public ResponseEntity<List<Anime>> list(){
+    public ResponseEntity<Page<Anime>> list(Pageable pageable){
         log.info(dateUtil.formatLocalDateTimeToDatabaseStyle(LocalDateTime.now()));
-        return ResponseEntity.ok(animeService.listAll());
+        return ResponseEntity.ok(animeService.listAll(pageable));
     }
 
     @GetMapping(path = "/{id}")
