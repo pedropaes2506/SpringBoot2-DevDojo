@@ -3,8 +3,7 @@ package main.java.springboot2.client;
 import lombok.extern.log4j.Log4j2;
 import main.java.springboot2.domain.Anime;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
@@ -29,5 +28,45 @@ public class SpringClient {
                 new ParameterizedTypeReference<List<Anime>>() {}
         );
         log.info(exchange.getBody());
+
+//        Anime anime = Anime.builder().name("Bleach").build();
+//        Anime animeSaved = new RestTemplate().postForObject("http://localhost:8080/animes", anime, Anime.class);
+//        log.info(animeSaved);
+
+        Anime anime = Anime.builder().name("Naruto").build();
+        ResponseEntity<Anime> animeSaved = new RestTemplate().exchange(
+                "http://localhost:8080/animes",
+                HttpMethod.POST,
+                new HttpEntity<>(anime, createJsonHeaders()),
+                Anime.class
+        );
+        log.info(animeSaved.getBody());
+
+        Anime animeToUpdate = animeSaved.getBody();
+        if (animeToUpdate != null) {
+            animeToUpdate.setName("Naruto Shippuden");
+        }
+        ResponseEntity<Void> animeUpdated = new RestTemplate().exchange(
+                "http://localhost:8080/animes",
+                HttpMethod.PUT,
+                new HttpEntity<>(animeToUpdate, createJsonHeaders()),
+                Void.class
+        );
+        log.info(animeUpdated);
+
+        ResponseEntity<Void> animeDeleted = new RestTemplate().exchange(
+                "http://localhost:8080/animes/{id}",
+                HttpMethod.DELETE,
+                null,
+                Void.class,
+                animeToUpdate != null ? animeToUpdate.getId() : null
+        );
+        log.info(animeDeleted);
+    }
+
+    private static HttpHeaders createJsonHeaders() {
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+        return httpHeaders;
     }
 }
