@@ -1,18 +1,17 @@
-package main.java.springboot2.controller;
+package springboot2.controller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import main.java.springboot2.domain.Anime;
-import main.java.springboot2.requests.AnimePostRequestBody;
-import main.java.springboot2.requests.AnimePutRequestBody;
-import main.java.springboot2.service.AnimeService;
-import main.java.springboot2.util.DateUtil;
+import springboot2.domain.Anime;
+import springboot2.requests.AnimePostRequestBody;
+import springboot2.requests.AnimePutRequestBody;
+import springboot2.service.AnimeService;
+import springboot2.util.DateUtil;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;

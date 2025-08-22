@@ -1,8 +1,8 @@
-package main.java.springboot2.mapper;
+package springboot2.mapper;
 
-import main.java.springboot2.domain.Anime;
-import main.java.springboot2.requests.AnimePostRequestBody;
-import main.java.springboot2.requests.AnimePutRequestBody;
+import springboot2.domain.Anime;
+import springboot2.requests.AnimePostRequestBody;
+import springboot2.requests.AnimePutRequestBody;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

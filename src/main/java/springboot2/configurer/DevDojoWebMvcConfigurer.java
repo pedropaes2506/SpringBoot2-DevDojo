@@ -1,4 +1,4 @@
-package main.java.springboot2.configurer;
+package springboot2.configurer;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.PageRequest;

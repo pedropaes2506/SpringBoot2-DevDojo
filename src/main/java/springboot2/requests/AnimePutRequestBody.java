@@ -1,4 +1,4 @@
-package main.java.springboot2.requests;
+package springboot2.requests;
 
 import lombok.Data;
 

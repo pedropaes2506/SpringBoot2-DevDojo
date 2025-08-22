@@ -1,7 +1,7 @@
-package main.java.springboot2.client;
+package springboot2.client;
 
 import lombok.extern.log4j.Log4j2;
-import main.java.springboot2.domain.Anime;
+import springboot2.domain.Anime;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;

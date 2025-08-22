@@ -1,4 +1,4 @@
-package main.java.springboot2.util;
+package springboot2.util;
 
 import org.springframework.stereotype.Component;
 

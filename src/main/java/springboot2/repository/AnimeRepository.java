@@ -1,6 +1,6 @@
-package main.java.springboot2.repository;
+package springboot2.repository;
 
-import main.java.springboot2.domain.Anime;
+import springboot2.domain.Anime;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

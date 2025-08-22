@@ -1,4 +1,4 @@
-package main.java.springboot2.exception;
+package springboot2.exception;
 
 import lombok.Getter;
 import lombok.experimental.SuperBuilder;

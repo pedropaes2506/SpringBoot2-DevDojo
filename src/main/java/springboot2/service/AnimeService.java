@@ -1,13 +1,13 @@
-package main.java.springboot2.service;
+package springboot2.service;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import main.java.springboot2.domain.Anime;
-import main.java.springboot2.exception.BadRequestException;
-import main.java.springboot2.mapper.AnimeMapper;
-import main.java.springboot2.repository.AnimeRepository;
-import main.java.springboot2.requests.AnimePostRequestBody;
-import main.java.springboot2.requests.AnimePutRequestBody;
+import springboot2.domain.Anime;
+import springboot2.exception.BadRequestException;
+import springboot2.mapper.AnimeMapper;
+import springboot2.repository.AnimeRepository;
+import springboot2.requests.AnimePostRequestBody;
+import springboot2.requests.AnimePutRequestBody;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

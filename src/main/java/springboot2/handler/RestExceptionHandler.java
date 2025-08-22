@@ -1,8 +1,8 @@
-package main.java.springboot2.handler;
+package springboot2.handler;
 
-import main.java.springboot2.exception.BadRequestException;
-import main.java.springboot2.exception.BadRequestExceptionDetails;
-import main.java.springboot2.exception.ValidationExceptionDetails;
+import springboot2.exception.BadRequestException;
+import springboot2.exception.BadRequestExceptionDetails;
+import springboot2.exception.ValidationExceptionDetails;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;

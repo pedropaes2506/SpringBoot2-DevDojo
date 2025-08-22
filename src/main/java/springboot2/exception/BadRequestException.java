@@ -1,4 +1,4 @@
-package main.java.springboot2.exception;
+package springboot2.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

@@ -1,4 +1,4 @@
-package main.java.springboot2.domain;
+package springboot2.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
